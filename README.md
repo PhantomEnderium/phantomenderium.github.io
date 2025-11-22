@@ -1,0 +1,1 @@
+Website for Tom. If you're reading this from tom.shadowloafs.xyz, then Tom is missing the index.html file!
