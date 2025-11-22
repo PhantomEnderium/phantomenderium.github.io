@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About — Your Name</title>
+    <meta name="description" content="Brief about me page" />
+    <style>
+        :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:#111;background:#f7f7f8}
+        body{margin:0;line-height:1.45}
+        .container{max-width:900px;margin:3rem auto;padding:1.25rem}
+        header{display:flex;align-items:center;gap:1rem}
+        img.avatar{width:96px;height:96px;border-radius:12px;object-fit:cover;background:#ddd}
+        h1{margin:.25rem 0;font-size:1.5rem}
+        p.lead{margin:.25rem 0;color:#333}
+        .meta{color:#555;font-size:.95rem;margin-top:.5rem}
+        .skills{display:flex;gap:.5rem;flex-wrap:wrap;margin:.75rem 0}
+        .skill{background:#e6e6ea;padding:.35rem .6rem;border-radius:999px;font-size:.85rem}
+        footer{margin-top:2rem;color:#666;font-size:.9rem;border-top:1px solid #e8e8ec;padding-top:1rem}
+        a{color:inherit;text-decoration:underline}
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <img class="avatar" src="assets/avatar.png" alt="Your Name — photo or avatar (replace)" />
+            <div>
+                <h1>Your Name</h1>
+                <p class="lead">Frontend developer, designer, and lifelong learner building small projects and experiments.</p>
+                <div class="meta">Location • City, Country · <a href="mailto:you@example.com">you@example.com</a></div>
+            </div>
+        </header>
+
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
+            <p>Brief bio: who you are, what you do, and what you're interested in. Replace this text with a short paragraph describing your background, current work, and goals.</p>
+
+            <h3>Skills</h3>
+            <div class="skills" aria-label="Skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Git</span>
+            </div>
+
+            <h3>Current Projects</h3>
+            <ul>
+                <li>Project A — short description or link</li>
+                <li>Project B — short description or link</li>
+            </ul>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <p>If you'd like to get in touch: <a href="mailto:you@example.com">you@example.com</a></p>
+            <p>Find me on <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a> or <a href="https://twitter.com/your-handle" target="_blank" rel="noopener">Twitter</a>.</p>
+        </section>
+
+        <footer>
+            <small>© <span id="year"></span> Your Name. All content by you.</small>
+        </footer>
+    </main>
+
+    <script>
+        // small niceties
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
