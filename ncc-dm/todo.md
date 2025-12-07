@@ -9,3 +9,18 @@
 - Euler's Circuit
     - All edges must be used exactly once
     - Possible if every vertex has an even degree
+    - Circuit rules, so has to start and end at the same vertex
+- Euler's Trail
+    - Similar deal, vertex does NOT to start and end
+    - Possible if exactly 0 or 2 verticies have an odd degree
+        - If 0, is a trail anywhere in an existing Euler Circuit
+        - If 2, must be the start and end points.
+- Hamiltonian Circuit
+    - Visits every vertex once, and returns to the start
+    
+
+- Graph Complement
+    - Take graph with edges
+    - Invert edges
+        - If edge between verticies, remove it
+        - If no edge, add one
