@@ -1,0 +1,11 @@
+- Add Discrete Math Cheatsheet to site
+
+- Graph basics
+    - Vertex, Edges
+    - Vertex "degree" is how many edges are attached to vertex
+    - Even and odd degrees, 3 edges to vertex is odd, 2 is even, etc.
+- Add Walk, Trail, Path, and Circuit Information
+    - Include Closed Walk and Simple Circuit
+- Euler's Circuit
+    - All edges must be used exactly once
+    - Possible if every vertex has an even degree
