@@ -36,3 +36,34 @@
 
 ## Isomorphic Graphs
 - Looks different, same connections
+
+## Trees
+- Special kind of graph
+
+
+- Two key properties
+    - Connected – There is a path between any two vertices.
+    - Acyclic – There are no cycles, meaning you can’t start at a vertex, follow edges, and come back to the same vertex without retracing your steps.
+- Terminology
+    - Root: Often, one vertex is designated as the starting point.
+    - Parent / Child: In rooted trees, edges go from a parent node to child nodes.
+    - Leaf: A node with no children.
+    - Internal node: A node that is not a leaf; it has at least one child.
+    
+    - Internal Vertex - 2 or more connections
+    - Terminal Vertex - 1 connection
+
+- A tree with n vertices has exactly n−1 edges. This is because adding any more edges would create a cycle.
+- There is exactly one path between any two vertices in a tree.
+- Root vs Unroot
+    - Rooted tree: One node is chosen as the root, and directions are implied from parent → child. Great for things like family trees or decision trees.
+    - Unrooted tree: No designated root; just a connected, acyclic graph. Think of a molecular structure in chemistry.
+- Binary trees (a very common type)
+    - Each node has at most two children, usually called left and right.
+    - Used heavily in computer science for search, sorting, and hierarchical structures.
+    - Full: Every node has 0 or 2 children, so cannot have a parent with 1 child
+
+### Binary Search Trees
+- Rule: For each node:
+    - All keys in the left subtree < node key
+    - All keys in the right subtree > node key
