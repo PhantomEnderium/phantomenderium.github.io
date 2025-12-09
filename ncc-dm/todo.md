@@ -33,3 +33,6 @@
     - $\begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}$
 - Products
     - Row A x Column B
+
+## Isomorphic Graphs
+- Looks different, same connections
