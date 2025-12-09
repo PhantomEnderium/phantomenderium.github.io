@@ -1,5 +1,6 @@
-- Add Discrete Math Cheatsheet to site
+# Add Discrete Math Cheatsheet to site
 
+## Walks, Trails, Paths, Circuits
 - Graph basics
     - Vertex, Edges
     - Vertex "degree" is how many edges are attached to vertex
@@ -17,10 +18,18 @@
         - If 2, must be the start and end points.
 - Hamiltonian Circuit
     - Visits every vertex once, and returns to the start
-    
 
 - Graph Complement
     - Take graph with edges
     - Invert edges
         - If edge between verticies, remove it
         - If no edge, add one
+
+
+## Graph Matrix
+- Matrix visualization of graphs
+    - Each row is a vertix start
+    - Each column is a vertix end
+    - $\begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}$
+- Products
+    - Row A x Column B
