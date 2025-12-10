@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculus 1 — Complete Cheat Sheet</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #0b1220;
+      --accent: #7dd3fc;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.03)
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial
+    }
+
+    body {
+      background: linear-gradient(180deg, #071027 0%, #081428 60%);
+      color: #e6f0ff;
+      padding: 24px;
+      box-sizing: border-box
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #07203a;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(11, 20, 34, 0.6)
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px
+    }
+
+    p.lead {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+      margin-bottom: 14px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    th,
+    td {
+      padding: 8px 10px;
+      text-align: left;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+      font-size: 14px
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 13px
+    }
+
+    .section-title {
+      font-size: 15px;
+      margin: 0 0 8px
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace
+    }
+
+    @media (max-width:720px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .btn {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    footer {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    ul, ol {
+      margin: 8px 0;
+      padding-left: 20px
+    }
+
+    li {
+      margin-bottom: 6px
+    }
+
+    .formula {
+      background: rgba(125, 211, 252, 0.05);
+      padding: 8px 12px;
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      font-family: monospace;
+      margin: 8px 0
+    }
+
+    hr {
+      border: none;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      margin: 12px 0
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+        padding: 0;
+        font-size: 12pt;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      header, .actions, footer {
+        display: none;
+      }
+
+      .card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 1em;
+        box-shadow: none;
+        border: 1px solid #000;
+        background: #fff;
+        color: #000;
+        padding: 12px;
+      }
+
+      table {
+        page-break-inside: auto;
+        break-inside: auto;
+        width: 100%;
+        border: 1px solid #000;
+      }
+
+      th, td {
+        color: #000;
+        border: 1px solid #000;
+        padding: 4px 6px;
+        font-size: 11pt;
+      }
+
+      .grid {
+        display: block;
+      }
+
+      .mono {
+        font-family: monospace;
+        color: #000;
+      }
+
+      h1, h2, h3, h4, h5, h6, p {
+        color: #000;
+        page-break-after: avoid;
+      }
+
+      .formula {
+        background: #f5f5f5;
+        border-left: 3px solid #000;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">C1</div>
+      <div>
+        <h1>Calculus 1 — Complete Cheat Sheet</h1>
+        <p class="lead">Quick reference: limits, derivatives, integrals, differentiation rules, applications, and optimization.</p>
+      </div>
+      <div style="margin-left:auto" class="actions">
+        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </header>
+
+    <!-- Limits Card -->
+    <div class="card">
+      <h2 class="section-title">Limits — Definition & Notation</h2>
+      <p><strong>Definition:</strong> lim<sub>x→a</sub> f(x) = L means f(x) gets arbitrarily close to L as x approaches a.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Definition / Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Left Limit</td>
+            <td class="mono">lim<sub>x→a<sup>−</sup></sub> f(x)</td>
+          </tr>
+          <tr>
+            <td>Right Limit</td>
+            <td class="mono">lim<sub>x→a<sup>+</sup></sub> f(x)</td>
+          </tr>
+          <tr>
+            <td>Limit Exists</td>
+            <td>Left and right limits exist and are equal</td>
+          </tr>
+          <tr>
+            <td>Limit at Infinity</td>
+            <td class="mono">lim<sub>x→±∞</sub> f(x) = behavior as x gets very large</td>
+          </tr>
+          <tr>
+            <td>Infinite Limit</td>
+            <td class="mono">lim<sub>x→a</sub> f(x) = ±∞ (vertical asymptote)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted"><strong>Key:</strong> A limit at a point doesn't require the function to be defined there.</p>
+    </div>
+
+    <!-- Limit Laws Card -->
+    <div class="card">
+      <h2 class="section-title">Limit Laws</h2>
+      <p>If lim<sub>x→a</sub> f(x) = L and lim<sub>x→a</sub> g(x) = M, then:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Law</th>
+            <th>Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sum</td>
+            <td class="mono">lim [f(x) + g(x)] = L + M</td>
+          </tr>
+          <tr>
+            <td>Difference</td>
+            <td class="mono">lim [f(x) − g(x)] = L − M</td>
+          </tr>
+          <tr>
+            <td>Product</td>
+            <td class="mono">lim [f(x) · g(x)] = L · M</td>
+          </tr>
+          <tr>
+            <td>Quotient</td>
+            <td class="mono">lim [f(x)/g(x)] = L/M (if M ≠ 0)</td>
+          </tr>
+          <tr>
+            <td>Power</td>
+            <td class="mono">lim [f(x)]<sup>n</sup> = L<sup>n</sup></td>
+          </tr>
+          <tr>
+            <td>Root</td>
+            <td class="mono">lim [f(x)]<sup>1/n</sup> = L<sup>1/n</sup> (if L > 0, n even)</td>
+          </tr>
+          <tr>
+            <td>Constant Multiple</td>
+            <td class="mono">lim k·f(x) = k·L</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Continuity Card -->
+    <div class="card">
+      <h2 class="section-title">Continuity</h2>
+      <p><strong>Definition:</strong> f is continuous at x = a if:</p>
+      <ul>
+        <li>f(a) is defined</li>
+        <li>lim<sub>x→a</sub> f(x) exists</li>
+        <li>lim<sub>x→a</sub> f(x) = f(a)</li>
+      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Removable Discontinuity</td>
+            <td>Limit exists but f(a) ≠ limit, or f undefined (hole in graph)</td>
+          </tr>
+          <tr>
+            <td>Jump Discontinuity</td>
+            <td>Left and right limits exist but are not equal</td>
+          </tr>
+          <tr>
+            <td>Infinite Discontinuity</td>
+            <td>Vertical asymptote; limit is ±∞</td>
+          </tr>
+          <tr>
+            <td>Oscillating Discontinuity</td>
+            <td>Function oscillates without approaching a value (e.g., sin(1/x) at x=0)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted"><strong>Intermediate Value Theorem (IVT):</strong> If f is continuous on [a,b] and N is between f(a) and f(b), then ∃ c ∈ (a,b) where f(c) = N.</p>
+    </div>
+
+    <!-- Derivative Definition Card -->
+    <div class="card">
+      <h2 class="section-title">Derivatives — Definition & Notation</h2>
+      <p><strong>Definition:</strong> The derivative of f at x is the slope of the tangent line:</p>
+      <div class="formula">f'(x) = lim<sub>h→0</sub> [f(x+h) − f(x)] / h</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Notation</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">f'(x)</td>
+            <td>Lagrange notation (prime)</td>
+          </tr>
+          <tr>
+            <td class="mono">df/dx</td>
+            <td>Leibniz notation</td>
+          </tr>
+          <tr>
+            <td class="mono">D_x f</td>
+            <td>Operator notation</td>
+          </tr>
+          <tr>
+            <td class="mono">f''(x)</td>
+            <td>Second derivative (rate of change of f')</td>
+          </tr>
+          <tr>
+            <td class="mono">f^(n)(x)</td>
+            <td>nth derivative</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted"><strong>Geometric Interpretation:</strong> f'(a) is the slope of the tangent line to f at x = a.</p>
+    </div>
+
+    <!-- Differentiation Rules Card -->
+    <div class="card">
+      <h2 class="section-title">Differentiation Rules</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rule</th>
+            <th>Formula</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Constant</td>
+            <td class="mono">d/dx [c] = 0</td>
+            <td class="mono">d/dx [5] = 0</td>
+          </tr>
+          <tr>
+            <td>Power</td>
+            <td class="mono">d/dx [x<sup>n</sup>] = nx<sup>n−1</sup></td>
+            <td class="mono">d/dx [x<sup>3</sup>] = 3x<sup>2</sup></td>
+          </tr>
+          <tr>
+            <td>Sum</td>
+            <td class="mono">d/dx [f+g] = f' + g'</td>
+            <td class="mono">d/dx [x<sup>2</sup>+x] = 2x+1</td>
+          </tr>
+          <tr>
+            <td>Difference</td>
+            <td class="mono">d/dx [f−g] = f' − g'</td>
+            <td class="mono">d/dx [x<sup>2</sup>−x] = 2x−1</td>
+          </tr>
+          <tr>
+            <td>Constant Multiple</td>
+            <td class="mono">d/dx [c·f] = c·f'</td>
+            <td class="mono">d/dx [5x<sup>2</sup>] = 10x</td>
+          </tr>
+          <tr>
+            <td>Product</td>
+            <td class="mono">d/dx [fg] = f'g + fg'</td>
+            <td class="mono">d/dx [x·sin(x)] = sin(x) + x·cos(x)</td>
+          </tr>
+          <tr>
+            <td>Quotient</td>
+            <td class="mono">d/dx [f/g] = (f'g − fg')/g<sup>2</sup></td>
+            <td class="mono">d/dx [x/sin(x)]</td>
+          </tr>
+          <tr>
+            <td>Chain</td>
+            <td class="mono">d/dx [f(g(x))] = f'(g(x))·g'(x)</td>
+            <td class="mono">d/dx [sin(x<sup>2</sup>)] = cos(x<sup>2</sup>)·2x</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Derivatives of Common Functions Card -->
+    <div class="card">
+      <h2 class="section-title">Derivatives of Common Functions</h2>
+      <div class="grid">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Derivative</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">e<sup>x</sup></td>
+                <td class="mono">e<sup>x</sup></td>
+              </tr>
+              <tr>
+                <td class="mono">a<sup>x</sup></td>
+                <td class="mono">a<sup>x</sup>·ln(a)</td>
+              </tr>
+              <tr>
+                <td class="mono">ln(x)</td>
+                <td class="mono">1/x</td>
+              </tr>
+              <tr>
+                <td class="mono">log<sub>a</sub>(x)</td>
+                <td class="mono">1/(x·ln(a))</td>
+              </tr>
+              <tr>
+                <td class="mono">sin(x)</td>
+                <td class="mono">cos(x)</td>
+              </tr>
+              <tr>
+                <td class="mono">cos(x)</td>
+                <td class="mono">−sin(x)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Derivative</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">tan(x)</td>
+                <td class="mono">sec<sup>2</sup>(x)</td>
+              </tr>
+              <tr>
+                <td class="mono">cot(x)</td>
+                <td class="mono">−csc<sup>2</sup>(x)</td>
+              </tr>
+              <tr>
+                <td class="mono">sec(x)</td>
+                <td class="mono">sec(x)tan(x)</td>
+              </tr>
+              <tr>
+                <td class="mono">csc(x)</td>
+                <td class="mono">−csc(x)cot(x)</td>
+              </tr>
+              <tr>
+                <td class="mono">arcsin(x)</td>
+                <td class="mono">1/√(1−x<sup>2</sup>)</td>
+              </tr>
+              <tr>
+                <td class="mono">arctan(x)</td>
+                <td class="mono">1/(1+x<sup>2</sup>)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Critical Points & First Derivative Test Card -->
+    <div class="card">
+      <h2 class="section-title">Critical Points & First Derivative Test</h2>
+      <p><strong>Critical Point:</strong> Where f'(x) = 0 or f'(x) undefined (potential max/min).</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Test / Concept</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First Derivative Test</td>
+            <td>Check sign of f' before and after critical point:<br/>
+            + to − → local max<br/>
+            − to + → local min<br/>
+            no sign change → inflection point</td>
+          </tr>
+          <tr>
+            <td>Increasing/Decreasing</td>
+            <td>f'(x) > 0 on interval → f increasing<br/>
+            f'(x) < 0 on interval → f decreasing</td>
+          </tr>
+          <tr>
+            <td>Second Derivative Test</td>
+            <td>At critical point c: f''(c) > 0 → local min; f''(c) < 0 → local max; f''(c) = 0 → test inconclusive</td>
+          </tr>
+          <tr>
+            <td>Concavity</td>
+            <td>f''(x) > 0 → concave up ⌢<br/>
+            f''(x) < 0 → concave down ⌣</td>
+          </tr>
+          <tr>
+            <td>Inflection Point</td>
+            <td>Where concavity changes; f''(x) = 0 (and sign changes)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mean Value & Rolle's Theorem Card -->
+    <div class="card">
+      <h2 class="section-title">Mean Value Theorem & Rolle's Theorem</h2>
+      <p><strong>Rolle's Theorem:</strong> If f is continuous on [a,b], differentiable on (a,b), and f(a) = f(b), then ∃ c ∈ (a,b) where f'(c) = 0.</p>
+      <p><strong>Mean Value Theorem (MVT):</strong> If f is continuous on [a,b] and differentiable on (a,b), then ∃ c ∈ (a,b) where:</p>
+      <div class="formula">f'(c) = [f(b) − f(a)] / (b − a)</div>
+      <p class="muted"><strong>Interpretation:</strong> There exists a point where the instantaneous rate of change equals the average rate of change.</p>
+    </div>
+
+    <!-- L'Hôpital's Rule Card -->
+    <div class="card">
+      <h2 class="section-title">L'Hôpital's Rule</h2>
+      <p>If lim<sub>x→a</sub> f(x)/g(x) gives 0/0 or ±∞/±∞, then:</p>
+      <div class="formula">lim<sub>x→a</sub> f(x)/g(x) = lim<sub>x→a</sub> f'(x)/g'(x)</div>
+      <p><strong>Process:</strong></p>
+      <ul>
+        <li>Verify indeterminate form (0/0 or ∞/∞)</li>
+        <li>Differentiate numerator and denominator separately</li>
+        <li>Evaluate the new limit</li>
+        <li>Repeat if necessary</li>
+      </ul>
+      <p class="muted"><strong>Note:</strong> This is NOT the quotient rule! Only applies to indeterminate forms.</p>
+    </div>
+
+    <!-- Integration Definition Card -->
+    <div class="card">
+      <h2 class="section-title">Integration — Definition & Notation</h2>
+      <p><strong>Definition:</strong> The antiderivative F of f satisfies F'(x) = f(x).</p>
+      <div class="formula">∫ f(x) dx = F(x) + C</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Notation & Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Indefinite Integral</td>
+            <td class="mono">∫ f(x) dx</td>
+          </tr>
+          <tr>
+            <td>Definite Integral</td>
+            <td class="mono">∫<sub>a</sub><sup>b</sup> f(x) dx</td>
+          </tr>
+          <tr>
+            <td>Fundamental Theorem (Part 1)</td>
+            <td class="mono">If F'(x) = f(x), then ∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) − F(a)</td>
+          </tr>
+          <tr>
+            <td>Fundamental Theorem (Part 2)</td>
+            <td class="mono">d/dx [∫<sub>a</sub><sup>x</sup> f(t) dt] = f(x)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted"><strong>Key:</strong> C (constant of integration) only appears in indefinite integrals.</p>
+    </div>
+
+    <!-- Integration Rules Card -->
+    <div class="card">
+      <h2 class="section-title">Integration Rules</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rule</th>
+            <th>Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Power</td>
+            <td class="mono">∫ x<sup>n</sup> dx = x<sup>n+1</sup>/(n+1) + C (n ≠ −1)</td>
+          </tr>
+          <tr>
+            <td>Sum</td>
+            <td class="mono">∫ [f+g] dx = ∫ f dx + ∫ g dx</td>
+          </tr>
+          <tr>
+            <td>Constant Multiple</td>
+            <td class="mono">∫ k·f dx = k ∫ f dx</td>
+          </tr>
+          <tr>
+            <td>1/x</td>
+            <td class="mono">∫ 1/x dx = ln|x| + C</td>
+          </tr>
+          <tr>
+            <td>e<sup>x</sup></td>
+            <td class="mono">∫ e<sup>x</sup> dx = e<sup>x</sup> + C</td>
+          </tr>
+          <tr>
+            <td>a<sup>x</sup></td>
+            <td class="mono">∫ a<sup>x</sup> dx = a<sup>x</sup>/ln(a) + C</td>
+          </tr>
+          <tr>
+            <td>sin(x)</td>
+            <td class="mono">∫ sin(x) dx = −cos(x) + C</td>
+          </tr>
+          <tr>
+            <td>cos(x)</td>
+            <td class="mono">∫ cos(x) dx = sin(x) + C</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Integration Techniques Card -->
+    <div class="card">
+      <h2 class="section-title">Integration Techniques</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Technique</th>
+            <th>When to Use</th>
+            <th>Formula / Process</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>U-Substitution</strong></td>
+            <td>Composite functions (chain rule backward)</td>
+            <td class="mono">Let u = inner function, du = u' dx, then substitute</td>
+          </tr>
+          <tr>
+            <td><strong>Integration by Parts</strong></td>
+            <td>Product of functions (polynomial × trig, ln × x, etc.)</td>
+            <td class="mono">∫ u dv = uv − ∫ v du<br/>(choose u using LIATE)</td>
+          </tr>
+          <tr>
+            <td><strong>Partial Fractions</strong></td>
+            <td>Rational functions (polynomial ratios)</td>
+            <td>Decompose into simpler fractions, then integrate each</td>
+          </tr>
+          <tr>
+            <td><strong>Trig Substitution</strong></td>
+            <td>Expressions with √(a²−x²), √(a²+x²), √(x²−a²)</td>
+            <td class="mono">√(a²−x²) → x = a·sin(θ)<br/>√(a²+x²) → x = a·tan(θ)<br/>√(x²−a²) → x = a·sec(θ)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Area Under Curve Card -->
+    <div class="card">
+      <h2 class="section-title">Area Under Curve & Applications</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Formula / Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Area Under f(x)</td>
+            <td class="mono">A = ∫<sub>a</sub><sup>b</sup> f(x) dx (f(x) ≥ 0)</td>
+          </tr>
+          <tr>
+            <td>Area Between Curves</td>
+            <td class="mono">A = ∫<sub>a</sub><sup>b</sup> [f(x) − g(x)] dx (f ≥ g)</td>
+          </tr>
+          <tr>
+            <td>Volume (Disk Method)</td>
+            <td class="mono">V = π ∫<sub>a</sub><sup>b</sup> [f(x)]² dx</td>
+          </tr>
+          <tr>
+            <td>Volume (Washer Method)</td>
+            <td class="mono">V = π ∫<sub>a</sub><sup>b</sup> {[f(x)]² − [g(x)]²} dx</td>
+          </tr>
+          <tr>
+            <td>Arc Length</td>
+            <td class="mono">L = ∫<sub>a</sub><sup>b</sup> √(1 + [f'(x)]²) dx</td>
+          </tr>
+          <tr>
+            <td>Surface Area</td>
+            <td class="mono">S = 2π ∫<sub>a</sub><sup>b</sup> f(x)√(1 + [f'(x)]²) dx</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Optimization Card -->
+    <div class="card">
+      <h2 class="section-title">Optimization — Solving Max/Min Problems</h2>
+      <p><strong>Process:</strong></p>
+      <ol>
+        <li>Set up the function to optimize: f(x) = what you want to maximize/minimize</li>
+        <li>Identify constraints and express all variables in terms of one variable</li>
+        <li>Find critical points: solve f'(x) = 0</li>
+        <li>Use second derivative test or first derivative test to classify</li>
+        <li>Check endpoints and compare all critical/endpoint values</li>
+        <li>State the answer with units</li>
+      </ol>
+      <p class="muted"><strong>Common Scenarios:</strong> Fence/enclosure problems, container optimization, cost minimization, revenue/profit maximization, projectile motion.</p>
+    </div>
+
+    <!-- Absolute vs Local Extrema Card -->
+    <div class="card">
+      <h2 class="section-title">Absolute vs Local Extrema</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Definition</th>
+            <th>Where to Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Local Maximum</strong></td>
+            <td>f(c) ≥ f(x) for all x near c</td>
+            <td>Critical points where f' changes + to −</td>
+          </tr>
+          <tr>
+            <td><strong>Local Minimum</strong></td>
+            <td>f(c) ≤ f(x) for all x near c</td>
+            <td>Critical points where f' changes − to +</td>
+          </tr>
+          <tr>
+            <td><strong>Absolute Maximum</strong></td>
+            <td>Largest value on entire domain</td>
+            <td>Compare all critical points AND endpoints</td>
+          </tr>
+          <tr>
+            <td><strong>Absolute Minimum</strong></td>
+            <td>Smallest value on entire domain</td>
+            <td>Compare all critical points AND endpoints</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted"><strong>Extreme Value Theorem (EVT):</strong> Continuous function on closed interval [a,b] attains absolute max/min.</p>
+    </div>
+
+    <!-- Common Derivative Mistakes Card -->
+    <div class="card">
+      <h2 class="section-title">Common Mistakes & Quick Tips</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Mistake</th>
+            <th>Correct Approach</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Forgetting chain rule</td>
+            <td>Always check for composition: d/dx[f(g(x))] = f'(g(x))·g'(x)</td>
+          </tr>
+          <tr>
+            <td>Quotient rule misapplication</td>
+            <td>Remember: (u/v)' = (u'v − uv')/v², not u'/v'</td>
+          </tr>
+          <tr>
+            <td>Forgetting "+C" in indefinite integrals</td>
+            <td>Always add constant of integration for antiderivatives</td>
+          </tr>
+          <tr>
+            <td>Confusing f(x) and f'(x)</td>
+            <td>f'(x) = 0 → critical points; f'(x) > 0 → increasing; f'(x) < 0 → decreasing</td>
+          </tr>
+          <tr>
+            <td>Wrong limit at infinity reasoning</td>
+            <td>Highest degree terms dominate; compare leading coefficients for rational limits</td>
+          </tr>
+          <tr>
+            <td>Missing negative in derivative formulas</td>
+            <td>d/dx[cos(x)] = −sin(x); ∫ sin(x) dx = −cos(x) + C</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Asymptotes Card -->
+    <div class="card">
+      <h2 class="section-title">Asymptotes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Definition & How to Find</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vertical</td>
+            <td>x = a where lim f(x) = ±∞. Find where denominator = 0 (and numerator ≠ 0)</td>
+            <td>f(x) = 1/(x−2) → x = 2</td>
+          </tr>
+          <tr>
+            <td>Horizontal</td>
+            <td>y = L where lim<sub>x→∞</sub> f(x) = L. Compare degree of numerator and denominator for rational functions</td>
+            <td>f(x) = (2x+1)/(3x−5) → y = 2/3</td>
+          </tr>
+          <tr>
+            <td>Oblique (Slant)</td>
+            <td>y = mx + b when degree(numerator) = degree(denominator) + 1. Use polynomial long division</td>
+            <td>f(x) = (x²+1)/(x−1) → y = x+1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Related Rates Card -->
+    <div class="card">
+      <h2 class="section-title">Related Rates Problems</h2>
+      <p><strong>Process:</strong></p>
+      <ol>
+        <li>Draw a diagram and label variables/constants</li>
+        <li>Identify what's given (rate) and what to find (another rate)</li>
+        <li>Write an equation relating the variables using geometry/physics</li>
+        <li>Differentiate both sides with respect to time: d/dt</li>
+        <li>Substitute known values and solve for unknown rate</li>
+      </ol>
+      <p class="muted"><strong>Key Insight:</strong> All rates are with respect to time. Use implicit differentiation!</p>
+    </div>
+
+    <footer class="muted">Made for quick studying — print or save as PDF with the button above.</footer>
+  </div>
+</body>
+
+</html>
