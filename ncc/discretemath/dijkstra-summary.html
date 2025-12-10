@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra's Algorithm - Comprehensive Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0f3460;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .header-subtitle {
+            color: #a0a0a0;
+            font-size: 0.95em;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(15, 52, 96, 0.4);
+            border-left: 4px solid #00d4ff;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .section h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .section h3 {
+            color: #4db8ff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .paper {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            border-left: 3px solid #00d4ff;
+        }
+
+        .paper h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .paper-subtitle {
+            color: #a0a0a0;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #4db8ff;
+            font-weight: 600;
+        }
+
+        .key-insight {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-style: italic;
+        }
+
+        .synthesis-item {
+            text-align: left;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #0f3460;
+            color: #808080;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #4db8ff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dijkstra's Algorithm</h1>
+            <p class="header-subtitle">Comprehensive Summary of 10 Research Papers</p>
+            <p class="header-subtitle">Prepared for: Project Group | Date: November 11, 2025</p>
+            <p class="header-subtitle">Quick reference guide for understanding Dijkstra's Algorithm research</p>
+        </header>
+
+        <section class="section">
+            <h2>Paper Summaries</h2>
+
+            <div class="paper">
+                <h3>1. Abousleiman - "A Bellman-Ford Approach to Energy Efficient Routing of Electric Vehicles"</h3>
+                <p class="paper-subtitle">Focus: Energy-efficient routing for electric vehicles (EVs)</p>
+                <ul>
+                    <li>Traditional Dijkstra algorithms optimize for shortest distance or time but NOT energy</li>
+                    <li>Electric vehicles present unique challenges: negative path costs (from regenerative braking)</li>
+                    <li>Battery power and energy limits make EV routing fundamentally different from fossil fuel vehicles</li>
+                    <li>Solution: Uses Bellman-Ford algorithm instead, which can handle negative edge weights</li>
+                    <li>Bellman-Ford is deterministic and effective for EV routing optimization</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Dijkstra CANNOT be used for EV routing due to negative costs from regenerative braking; Bellman-Ford is the appropriate alternative.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>2. Abusalim - "Comparative Analysis between Dijkstra and Bellman-Ford Algorithms in Shortest Path Optimization"</h3>
+                <p class="paper-subtitle">Focus: Direct comparison of two major shortest path algorithms</p>
+                <ul>
+                    <li>Dijkstra's Algorithm: Better execution time, more efficient for shortest path problems</li>
+                    <li>Bellman-Ford Algorithm: Can handle negative edge weights, less efficient overall</li>
+                    <li>Primary Limitation of Dijkstra: Works ONLY with non-negative edge weights</li>
+                    <li>Applications: Computer protocols, GPS/Google Maps, game development</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Choose algorithm based on edge weight constraints—Dijkstra for non-negative, Bellman-Ford for graphs with negative weights.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>3. Bing - "Improvement and Application of Dijkstra Algorithms"</h3>
+                <p class="paper-subtitle">Focus: Optimization of Dijkstra algorithm for practical efficiency</p>
+                <ul>
+                    <li>Classic Dijkstra is exhaustive and calculates many routes NOT in final solution</li>
+                    <li>Algorithm complexity: O(n²) where n = number of nodes</li>
+                    <li>Proposed improvements: Improved calculation method, graphical model modification</li>
+                    <li>Applications: Traffic route planning, logistics, network optimization, robot navigation</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Classic Dijkstra has O(n²) complexity and is inefficient; improved versions reduce calculation overhead by being more directional.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>4. Duan et al. - "Breaking the Sorting Barrier for Directed Single-Source Shortest Paths"</h3>
+                <p class="paper-subtitle">Focus: BREAKTHROUGH - First algorithm to beat Dijkstra's proven bounds</p>
+                <ul>
+                    <li>Developed O(m log^(2/3) n) algorithm - FIRST to break O(m + n log n) Dijkstra bound!</li>
+                    <li>Proves Dijkstra's algorithm is NOT optimal for sparse directed graphs</li>
+                    <li>Works on directed graphs with real non-negative edge weights</li>
+                    <li>Breaks the sorting bottleneck that limited previous improvements</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> For almost 70 years, Dijkstra was considered optimal; this research proves it can be improved for sparse directed graphs.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>5. Duan et al. - "A Randomized Algorithm for Single-Source Shortest Path on Undirected Real-Weighted Graphs"</h3>
+                <p class="paper-subtitle">Focus: Breaking Dijkstra's bound for undirected graphs</p>
+                <ul>
+                    <li>NEW randomized algorithm with O(m √log n log log n) time</li>
+                    <li>First to break O(m + n log n) Dijkstra bound for real-weighted sparse graphs</li>
+                    <li>Non-hierarchy-based approach (simpler structure, easier implementation)</li>
+                    <li>Comparable to Thorup's linear time for integer edge weights</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Randomization enables beating Dijkstra; algorithm is practical and easier to implement than previous approaches.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>6. Fan & Shi - "Improvement of Dijkstra's Algorithm and Its Application in Route Planning"</h3>
+                <p class="paper-subtitle">Focus: Practical improvements for road network route planning</p>
+                <ul>
+                    <li>Storage Structure Improvement: Replace adjacency matrix with more efficient structures</li>
+                    <li>Searching Area Restriction: Limit search space to relevant regions</li>
+                    <li>Applications: Road network path planning, vehicle navigation, logistics</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Classic Dijkstra needs improvements in data structure and search space restriction for practical efficiency.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>7. Haeupler et al. - "Universal Optimality of Dijkstra via Beyond-Worst-Case Heaps"</h3>
+                <p class="paper-subtitle">Focus: Proving Dijkstra is universally optimal with proper heap implementation</p>
+                <ul>
+                    <li>With sufficiently efficient heap, Dijkstra's algorithm is universally optimal</li>
+                    <li>Universal optimality = performs as well as possible on EVERY graph</li>
+                    <li>New Heap Data Structure with Working-Set Bound for efficiency</li>
+                    <li>Proves Dijkstra optimal for ordering vertices by distance</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Dijkstra IS provably optimal with the right heap implementation.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>8. Javaid - "Understanding Dijkstra's Algorithm"</h3>
+                <p class="paper-subtitle">Focus: Clear educational explanation of Dijkstra's algorithm</p>
+                <ul>
+                    <li>Solves single-source shortest paths problem</li>
+                    <li>Finds least-cost routes from starting node to all other nodes</li>
+                    <li>Uses table-based systematic approach with visited column and next row</li>
+                    <li>Applications: Network routing, GPS navigation, cost minimization</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Dijkstra provides systematic table-based method for finding shortest paths.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>9. Mo et al. - "Robustness of the Adaptive Bellman-Ford Algorithm: Global Stability and Ultimate Bounds"</h3>
+                <p class="paper-subtitle">Focus: Distributed systems application; robustness of Bellman-Ford</p>
+                <ul>
+                    <li>Important for distributed systems (Aggregate Programming)</li>
+                    <li>Classical Bellman-Ford lacks robustness properties under perturbations</li>
+                    <li>Formulates Lyapunov function to analyze Adaptive Bellman-Ford</li>
+                    <li>Proves GLOBAL UNIFORM ASYMPTOTIC STABILITY</li>
+                    <li>Applications: Distributed services, IoT systems, Aggregate Computing</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> Bellman-Ford can be made robust for distributed systems through adaptive mechanisms.
+                </div>
+            </div>
+
+            <div class="paper">
+                <h3>10. Rachmawati & Gustin - "Analysis of Dijkstra's Algorithm and A* Algorithm in Shortest Path Problem"</h3>
+                <p class="paper-subtitle">Focus: Comparing Dijkstra with A* (heuristic improvement)</p>
+                <ul>
+                    <li>Small/Regional Scale Maps: Dijkstra and A* perform similarly</li>
+                    <li>Large Scale Maps: A* significantly outperforms Dijkstra</li>
+                    <li>A* uses heuristic to guide search (unlike Dijkstra's exhaustive approach)</li>
+                    <li>Applications: GPS navigation, finding nearest locations, route planning</li>
+                </ul>
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> For small to medium problems, Dijkstra and A* are comparable; A* scales better for large maps.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Synthesis & Key Takeaways</h2>
+            
+            <div class="synthesis-item">
+                <h3>Algorithm Choice Depends on Constraints</h3>
+                <ul>
+                    <li><span class="highlight">Non-negative weights</span> → Dijkstra (or improved versions)</li>
+                    <li><span class="highlight">Negative weights</span> → Bellman-Ford</li>
+                    <li><span class="highlight">Need heuristic guidance</span> → A*</li>
+                    <li><span class="highlight">Energy optimization</span> → Bellman-Ford (for EVs)</li>
+                    <li><span class="highlight">Distributed systems</span> → Adaptive Bellman-Ford</li>
+                </ul>
+            </div>
+
+            <div class="synthesis-item">
+                <h3>Dijkstra Remains Foundational But Not Optimal</h3>
+                <ul>
+                    <li>~70 years proven optimal (Haeupler)</li>
+                    <li>Recently broken for directed sparse graphs (Duan)</li>
+                    <li>O(m + n log n) with Fibonacci heaps</li>
+                    <li>Can be improved with better implementations</li>
+                </ul>
+            </div>
+
+            <div class="synthesis-item">
+                <h3>Practical Improvements</h3>
+                <ul>
+                    <li>Better data structures (adjacency list vs. matrix)</li>
+                    <li>Restrict search areas</li>
+                    <li>Use heuristics (A*)</li>
+                    <li>Optimize heap implementations</li>
+                </ul>
+            </div>
+
+            <div class="synthesis-item">
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li>GPS/Navigation systems (Google Maps)</li>
+                    <li>Logistics and route planning</li>
+                    <li>Network routing protocols</li>
+                    <li>Robot navigation</li>
+                    <li>Distributed IoT systems</li>
+                    <li>Traffic management</li>
+                </ul>
+            </div>
+
+            <div class="synthesis-item">
+                <h3>Emerging Research</h3>
+                <ul>
+                    <li>Breaking classical O(m + n log n) bounds</li>
+                    <li>Randomized algorithms with better constants</li>
+                    <li>Universal optimality guarantees</li>
+                    <li>Robustness in distributed settings</li>
+                    <li>Application-specific optimizations (EVs, IoT)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Discussion Points for Your Project Group</h2>
+            <ol style="list-style: decimal; padding-left: 20px; text-align: left;">
+                <li>Which algorithm will you focus on and why?</li>
+                <li>What real-world problem will you solve?</li>
+                <li>Will you implement optimizations or study theoretical improvements?</li>
+                <li>How will you handle edge cases (negative weights, large graphs, etc.)?</li>
+                <li>What data structures will you use for optimal performance?</li>
+                <li>How does your problem domain (traffic, networks, etc.) affect algorithm choice?</li>
+            </ol>
+        </section>
+
+        <footer>
+            <p>Content sourced from: <strong>DIJKSTRA_ALGORITHM_SUMMARY.txt</strong></p>
+            <p>Last updated: November 11, 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discrete Math — Complete Cheat Sheet</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #0b1220;
+      --accent: #7dd3fc;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.03)
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial
+    }
+
+    body {
+      background: linear-gradient(180deg, #071027 0%, #081428 60%);
+      color: #e6f0ff;
+      padding: 24px;
+      box-sizing: border-box
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #07203a;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(11, 20, 34, 0.6)
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px
+    }
+
+    p.lead {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+      margin-bottom: 14px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    th,
+    td {
+      padding: 8px 10px;
+      text-align: left;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+      font-size: 14px
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 13px
+    }
+
+    .section-title {
+      font-size: 15px;
+      margin: 0 0 8px
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace
+    }
+
+    @media (max-width:720px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .btn {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    footer {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    @media print {
+  body {
+    background: white;
+    color: black;
+    padding: 0;
+    font-size: 12pt;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  header, .actions, footer {
+    display: none; /* remove header buttons and footer for printing */
+  }
+
+  .card {
+    page-break-inside: avoid; /* prevents a card from splitting across pages */
+    break-inside: avoid; /* modern alternative */
+    margin-bottom: 1em;
+    box-shadow: none;
+    border: 1px solid #000; /* optional: for visual separation */
+    background: #fff;
+    color: #000;
+    padding: 12px;
+  }
+
+  table {
+    page-break-inside: auto;
+    break-inside: auto;
+    width: 100%;
+    border: 1px solid #000;
+  }
+
+  th, td {
+    color: #000;
+    border: 1px solid #000;
+    padding: 4px 6px;
+    font-size: 11pt;
+  }
+
+  .grid {
+    display: block; /* stack tables vertically */
+  }
+
+  .mono {
+    font-family: monospace;
+    color: #000;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    color: #000;
+    page-break-after: avoid;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">DM</div>
+      <div>
+        <h1>Discrete Math — Complete Cheat Sheet</h1>
+        <p class="lead">Quick reference: logic, sets, quantifiers, number sets, intervals, truth sets, graph theory, Euler/Hamiltonian circuits, and trees.</p>
+      </div>
+      <div style="margin-left:auto" class="actions">
+        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </header>
+
+    <!-- Number Sets & Interval/Set-Builder Card -->
+    <div class="card">
+      <h2 class="section-title">Number Sets & Interval / Set-Builder Notation</h2>
+      <div class="grid">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Set</th>
+                <th>Meaning</th>
+                <th>Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">ℕ</td>
+                <td>Natural numbers</td>
+                <td>0,1,2,3,...</td>
+              </tr>
+              <tr>
+                <td class="mono">ℤ</td>
+                <td>Integers</td>
+                <td>..., -2,-1,0,1,2,...</td>
+              </tr>
+              <tr>
+                <td class="mono">ℚ</td>
+                <td>Rational numbers (fractions)</td>
+                <td>1/2, -3/4, 7</td>
+              </tr>
+              <tr>
+                <td class="mono">ℝ</td>
+                <td>Real numbers (including decimals)</td>
+                <td>-2.5, 0, 3.1415</td>
+              </tr>
+              <tr>
+                <td class="mono">ℂ</td>
+                <td>Complex numbers</td>
+                <td>2+3i</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Notation</th>
+                <th>Meaning / Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">(a,b)</td>
+                <td>Interval: all real numbers x where a < x < b</td>
+              </tr>
+              <tr>
+                <td class="mono">[a,b]</td>
+                <td>Interval: a ≤ x ≤ b</td>
+              </tr>
+              <tr>
+                <td class="mono">{x ∈ ℝ | a < x < b}</td>
+                <td>Set-builder: "x in ℝ such that a < x < b"</td>
+              </tr>
+              <tr>
+                <td class="mono">{x ∈ ℤ | n / x ∈ ℤ}</td>
+                <td>All integers dividing n (truth set)</td>
+              </tr>
+              <tr>
+                <td class="mono">| or :</td>
+                <td>"Such that" in set-builder notation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interval ↔ Set-Builder Conversion Card -->
+    <div class="card">
+      <h2 class="section-title">Interval ↔ Set-Builder Conversion</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Interval</th>
+            <th>Set-Builder Equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">(a,b)</td>
+            <td class="mono">{ x ∈ ℝ | a < x < b }</td>
+          </tr>
+          <tr>
+            <td class="mono">[a,b]</td>
+            <td class="mono">{ x ∈ ℝ | a ≤ x ≤ b }</td>
+          </tr>
+          <tr>
+            <td class="mono">(a,b]</td>
+            <td class="mono">{ x ∈ ℝ | a < x ≤ b }</td>
+          </tr>
+          <tr>
+            <td class="mono">[a,b)</td>
+            <td class="mono">{ x ∈ ℝ | a ≤ x < b }</td>
+          </tr>
+          <tr>
+            <td class="mono">(-∞, b)</td>
+            <td class="mono">{ x ∈ ℝ | x < b }</td>
+          </tr>
+          <tr>
+            <td class="mono">(a, ∞)</td>
+            <td class="mono">{ x ∈ ℝ | x > a }</td>
+          </tr>
+          <tr>
+            <td class="mono">(-∞, ∞)</td>
+            <td class="mono">{ x ∈ ℝ }</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">Quick reference: "(" or ")" = not included, "[" or "]" = included.</p>
+    </div>
+
+    <!-- Conditional Statement Variations Card -->
+    <div class="card">
+      <h2 class="section-title">Conditional Statement Variations</h2>
+      <p>Let the original conditional statement be: <span class="mono">If P, then Q</span>.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Form</th>
+            <th>Symbolic</th>
+            <th>Example (P: it rains, Q: the ground is wet)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Original</td>
+            <td class="mono">P → Q</td>
+            <td>If it rains, then the ground is wet.</td>
+          </tr>
+          <tr>
+            <td>Negation</td>
+            <td class="mono">~(P → Q)</td>
+            <td>It is not true that if it rains then the ground is wet.</td>
+          </tr>
+          <tr>
+            <td>Converse</td>
+            <td class="mono">Q → P</td>
+            <td>If the ground is wet, then it rains.</td>
+          </tr>
+          <tr>
+            <td>Inverse</td>
+            <td class="mono">~P → ~Q</td>
+            <td>If it does not rain, then the ground is not wet.</td>
+          </tr>
+          <tr>
+            <td>Contrapositive</td>
+            <td class="mono">~Q → ~P</td>
+            <td>If the ground is not wet, then it does not rain.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">Note: The contrapositive is logically equivalent to the original statement, but the converse and
+        inverse are not necessarily equivalent.</p>
+    </div>
+
+    <!-- Truth Set Mini-Guide Card -->
+    <div class="card">
+      <h2 class="section-title">Quick Truth Set Reference</h2>
+      <p>For predicates of the form <span class="mono">n / x ∈ ℤ</span> with <span class="mono">x ∈ ℤ</span>:</p>
+      <ul>
+        <li>Step 1: Find all positive divisors of <span class="mono">n</span></li>
+        <li>Step 2: Include the corresponding negative divisors</li>
+        <li>Step 3: Exclude zero (division by 0 is undefined)</li>
+        <li>Result: All integers <span class="mono">x</span> dividing <span class="mono">n</span> exactly form the truth
+          set</li>
+      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Example</th>
+            <th>Truth Set</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">10 / x ∈ ℤ</td>
+            <td class="mono">{-10, -5, -2, -1, 1, 2, 5, 10}</td>
+          </tr>
+          <tr>
+            <td class="mono">12 / x ∈ ℤ</td>
+            <td class="mono">{-12,-6,-4,-3,-2,-1,1,2,3,4,6,12}</td>
+          </tr>
+          <tr>
+            <td class="mono">7 / x ∈ ℤ</td>
+            <td class="mono">{-7,-1,1,7}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">Tip: This works for any integer <span class="mono">n</span>; just list all nonzero divisors.</p>
+    </div>
+
+    <!-- Existing Logic Card -->
+    <div class="card">
+      <div class="section">
+        <h2 class="section-title">Logic</h2>
+        <div class="grid">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">~P</td>
+                  <td>NOT (negation)</td>
+                </tr>
+                <tr>
+                  <td class="mono">P ∧ Q</td>
+                  <td>AND (conjunction)</td>
+                </tr>
+                <tr>
+                  <td class="mono">P ∨ Q</td>
+                  <td>OR (inclusive disjunction)</td>
+                </tr>
+                <tr>
+                  <td class="mono">P ⊕ Q</td>
+                  <td>XOR (exclusive OR)</td>
+                </tr>
+                <tr>
+                  <td class="mono">P → Q</td>
+                  <td>Implication (“if P then Q”)</td>
+                </tr>
+                <tr>
+                  <td class="mono">P ↔ Q</td>
+                  <td>Biconditional (“iff”)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Other</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">∴</td>
+                  <td>Therefore</td>
+                </tr>
+                <tr>
+                  <td class="mono">∵</td>
+                  <td>Because</td>
+                </tr>
+                <tr>
+                  <td class="mono">P → Q ≡ ~P ∨ Q</td>
+                  <td>Useful equivalence</td>
+                </tr>
+                <tr>
+                  <td class="mono">P ↔ Q ≡ (P → Q) ∧ (Q → P)</td>
+                  <td>Biconditional = two implications</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Set Theory Card -->
+<div class="card">
+  <h2 class="section-title">Set Theory</h2>
+  <div class="grid">
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">∈</td>
+            <td>Element of (e.g. 3 ∈ A means 3 is in A)</td>
+          </tr>
+          <tr>
+            <td class="mono">∉</td>
+            <td>Not element of (e.g. 5 ∉ A means 5 is not in A)</td>
+          </tr>
+          <tr>
+            <td class="mono">∅</td>
+            <td>Empty set (contains no elements)</td>
+          </tr>
+          <tr>
+            <td class="mono">{ }</td>
+            <td>Set braces — list elements, e.g. {1,2,3}</td>
+          </tr>
+          <tr>
+            <td class="mono">⊆</td>
+            <td>Subset — A ⊆ B means every element of A is also in B</td>
+          </tr>
+          <tr>
+            <td class="mono">⊂</td>
+            <td>Proper subset — A ⊂ B means A ⊆ B and A ≠ B</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Meaning / Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">∪</td>
+            <td>Union — all elements in A <em>or</em> B (A ∪ B)</td>
+          </tr>
+          <tr>
+            <td class="mono">∩</td>
+            <td>Intersection — elements in <em>both</em> A <em>and</em> B (A ∩ B)</td>
+          </tr>
+          <tr>
+            <td class="mono">−</td>
+            <td>Difference — elements in A <em>but not</em> in B (A − B)</td>
+          </tr>
+          <tr>
+            <td class="mono">A<sup>c</sup></td>
+            <td>Complement — everything <em>not</em> in A (relative to the universe)</td>
+          </tr>
+          <tr>
+            <td class="mono">×</td>
+            <td>Cartesian product — all ordered pairs (a,b) where a ∈ A, b ∈ B</td>
+          </tr>
+          <tr>
+            <td class="mono">|A|</td>
+            <td>Cardinality — number of elements in A</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="muted">Quick examples: 
+    A ∪ B = everything in either set; 
+    A ∩ B = overlap; 
+    A − B = only A’s leftovers; 
+    A<sup>c</sup> = opposite of A (if U is the universe).</p>
+</div>
+
+    <!-- Quantifiers & Number Sets Card -->
+    <div class="card">
+      <h2 class="section-title">Quantifiers & Number Sets</h2>
+      <div class="grid">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">∀</td>
+                <td>For all (universal quantifier)</td>
+              </tr>
+              <tr>
+                <td class="mono">∃</td>
+                <td>There exists (existential quantifier)</td>
+              </tr>
+              <tr>
+                <td class="mono">∄</td>
+                <td>There does not exist</td>
+              </tr>
+              <tr>
+                <td class="mono">| </td>
+                <td>Such that (in set-builder)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">ℕ</td>
+                <td>Natural numbers (0,1,2,...)</td>
+              </tr>
+              <tr>
+                <td class="mono">ℤ</td>
+                <td>Integers (...,-2,-1,0,1,2,...)</td>
+              </tr>
+              <tr>
+                <td class="mono">ℚ</td>
+                <td>Rational numbers</td>
+              </tr>
+              <tr>
+                <td class="mono">ℝ</td>
+                <td>Real numbers</td>
+              </tr>
+              <tr>
+                <td class="mono">ℂ</td>
+                <td>Complex numbers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Useful Symbols Card -->
+    <div class="card">
+      <h2 class="section-title">Other Useful Symbols</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Meaning / Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">≡</td>
+            <td>Congruence / equivalence (e.g. 7 ≡ 1 (mod 3))</td>
+          </tr>
+          <tr>
+            <td class="mono">mod</td>
+            <td>Modulo operation (14 mod 5 = 4)</td>
+          </tr>
+          <tr>
+            <td class="mono">⌊x⌋</td>
+            <td>Floor (round down)</td>
+          </tr>
+          <tr>
+            <td class="mono">⌈x⌉</td>
+            <td>Ceiling (round up)</td>
+          </tr>
+          <tr>
+            <td class="mono">⇒ / ⇔</td>
+            <td>Implies / iff (often used in proofs)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Equivalence Relations Card -->
+<div class="card">
+  <h2 class="section-title">Equivalence Relations</h2>
+  <p>A relation is an <strong>equivalence relation</strong> if it satisfies all three:</p>
+  <ul>
+    <li><strong>Reflexive:</strong> (a, a) ∈ R for all a</li>
+    <li><strong>S
+    ymmetric:</strong> (a, b) ∈ R ⇒ (b, a) ∈ R</li>
+    <li><strong>Transitive:</strong> (a, b), (b, c) ∈ R ⇒ (a, c) ∈ R</li>
+  </ul>
+
+  <h3 class="section-title">Equivalence Classes</h3>
+  <p>The equivalence class of an element <span class="mono">a</span> under relation <span class="mono">R</span> is:</p>
+  <p class="mono">{ x ∈ A | x R a }</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Example</th>
+        <th>Equivalence Classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mono">Congruence mod n</td>
+        <td>Numbers with the same remainder mod n</td>
+      </tr>
+      <tr>
+        <td>Truth-table equivalence</td>
+        <td>All statements with identical truth tables</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Relation Properties Card -->
+<div class="card">
+  <h2 class="section-title">Relation Properties</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Definition</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reflexive</td>
+        <td class="mono">∀a, (a,a) ∈ R</td>
+        <td>Everything relates to itself</td>
+      </tr>
+      <tr>
+        <td>Symmetric</td>
+        <td class="mono">(a,b) ∈ R ⇒ (b,a) ∈ R</td>
+        <td>Can reverse direction</td>
+      </tr>
+      <tr>
+        <td>Transitive</td>
+        <td class="mono">(a,b),(b,c) ∈ R ⇒ (a,c) ∈ R</td>
+        <td>Chaining property</td>
+      </tr>
+      <tr>
+        <td>Antisymmetric</td>
+        <td class="mono">(a,b),(b,a) ∈ R ⇒ a=b</td>
+        <td>Used in ≤, ≥ and partial orders</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Function Types Card -->
+<div class="card">
+  <h2 class="section-title">Functions & Mapping Types</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Definition</th>
+        <th>Example / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Injective (One-to-One)</td>
+        <td class="mono">f(a₁)=f(a₂) ⇒ a₁=a₂</td>
+        <td>No two inputs share an output</td>
+      </tr>
+      <tr>
+        <td>Surjective (Onto)</td>
+        <td>Every element of codomain has a preimage</td>
+        <td>Covers entire codomain</td>
+      </tr>
+      <tr>
+        <td>Bijective</td>
+        <td>Both injective and surjective</td>
+        <td>Perfect pairing → invertible</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modular Arithmetic Card -->
+<div class="card">
+  <h2 class="section-title">Modular Arithmetic</h2>
+  <p>Definition: <span class="mono">a ≡ b (mod n)</span> means <span class="mono">n | (a − b)</span>.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Rule</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Addition</td>
+        <td class="mono">a ≡ b, c ≡ d ⇒ a+c ≡ b+d (mod n)</td>
+      </tr>
+      <tr>
+        <td>Multiplication</td>
+        <td class="mono">a ≡ b ⇒ ac ≡ bc (mod n)</td>
+      </tr>
+      <tr>
+        <td>Transitivity</td>
+        <td class="mono">a ≡ b, b ≡ c ⇒ a ≡ c (mod n)</td>
+      </tr>
+      <tr>
+        <td>Equivalent Rewrite</td>
+        <td class="mono">a ≡ b ⇔ a mod n = b mod n</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Euclidean Algorithm Card -->
+<div class="card">
+  <h2 class="section-title">GCD & The Euclidean Algorithm</h2>
+  <p>To compute <span class="mono">gcd(a, b)</span>, repeatedly apply:</p>
+  <p class="mono">a = bq + r</p>
+  <p>until <span class="mono">r = 0</span>. The final nonzero remainder = gcd.</p>
+
+  <h3 class="section-title">Properties</h3>
+  <ul>
+    <li><span class="mono">gcd(a,b) = gcd(b, a mod b)</span></li>
+    <li><strong>Back-substitution</strong> rewrites gcd as <span class="mono">ax + by = d</span></li>
+    <li>This provides inverses modulo n (when d = 1)</li>
+  </ul>
+</div>
+
+
+
+
+    <!-- Graph Basics & Walk Types Card -->
+    <div class="card">
+      <h2 class="section-title">Graph Basics & Walk Types</h2>
+      <p><strong>Basic Components:</strong></p>
+      <ul>
+        <li><strong>Vertex:</strong> A point or node in a graph</li>
+        <li><strong>Edge:</strong> A connection between two vertices</li>
+        <li><strong>Degree:</strong> The number of edges connected to a vertex (even if 0, 2, 4...; odd if 1, 3, 5...)</li>
+      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Definition</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Walk</td>
+            <td>Sequence of vertices where each consecutive pair is connected by an edge</td>
+            <td>Can repeat edges and vertices</td>
+          </tr>
+          <tr>
+            <td>Closed Walk</td>
+            <td>A walk that starts and ends at the same vertex</td>
+            <td>May repeat edges/vertices</td>
+          </tr>
+          <tr>
+            <td>Trail</td>
+            <td>A walk that does not repeat edges</td>
+            <td>Can repeat vertices</td>
+          </tr>
+          <tr>
+            <td>Path</td>
+            <td>A walk that does not repeat vertices (or edges)</td>
+            <td>No repeated vertices except possibly start = end</td>
+          </tr>
+          <tr>
+            <td>Circuit</td>
+            <td>A closed walk that does not repeat edges</td>
+            <td>Starts and ends at same vertex</td>
+          </tr>
+          <tr>
+            <td>Simple Circuit</td>
+            <td>A circuit that does not repeat vertices (except start = end)</td>
+            <td>Also called a cycle</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Euler Paths & Circuits Card -->
+    <div class="card">
+      <h2 class="section-title">Euler's Paths & Circuits</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Definition</th>
+            <th>Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Euler's Circuit</strong></td>
+            <td>A circuit that uses every edge exactly once and returns to the starting vertex</td>
+            <td><strong>Every vertex must have even degree</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Euler's Trail</strong></td>
+            <td>A trail that uses every edge exactly once (may start and end at different vertices)</td>
+            <td><strong>Exactly 0 or 2 vertices have odd degree</strong><br/>• 0 odd: exists as a circuit<br/>• 2 odd: must start and end at those vertices</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted"><strong>Quick Check:</strong> Count vertex degrees → if all even, Euler circuit exists; if exactly 2 odd, Euler trail exists.</p>
+    </div>
+
+    <!-- Hamiltonian & Graph Complement Card -->
+    <div class="card">
+      <h2 class="section-title">Hamiltonian Circuits & Graph Complement</h2>
+      <div class="grid">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Definition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hamiltonian Circuit</strong></td>
+                <td>A circuit that visits every vertex exactly once and returns to the start</td>
+              </tr>
+              <tr>
+                <td>Key Difference</td>
+                <td>Uses all vertices (not necessarily all edges), vs. Euler uses all edges</td>
+              </tr>
+              <tr>
+                <td>Computational</td>
+                <td>NP-complete; no fast algorithm known for all graphs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Definition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Graph Complement</strong></td>
+                <td>Invert all edges: if edge exists, remove it; if no edge, add one</td>
+              </tr>
+              <tr>
+                <td>Notation</td>
+                <td>G' or Ḡ (complement of graph G)</td>
+              </tr>
+              <tr>
+                <td>Example</td>
+                <td>In G: A—B, then in G': A and B are disconnected</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Graph Matrix & Isomorphism Card -->
+    <div class="card">
+      <h2 class="section-title">Graph Matrix & Isomorphic Graphs</h2>
+      <p><strong>Adjacency Matrix:</strong> Rows = starting vertex, Columns = ending vertex. Entry is 1 if edge exists, 0 otherwise.</p>
+      <p class="muted">Example for a path graph A—B—C:</p>
+      <p style="text-align: center; font-family: monospace; line-height: 1.8;">
+        ⎡ 0  1  0 ⎤<br/>
+        ⎢ 1  0  1 ⎥<br/>
+        ⎣ 0  1  0 ⎦
+      </p>
+      <p><strong>Matrix Products:</strong> Row A × Column B gives count of 2-edge paths from A to B.</p>
+      <hr style="margin: 12px 0; border: 1px dashed rgba(255, 255, 255, 0.1);">
+      <p><strong>Isomorphic Graphs:</strong> Two graphs are isomorphic if they have the same structure but may look different visually. They have:</p>
+      <ul>
+        <li>Same number of vertices and edges</li>
+        <li>Identical degree sequences</li>
+        <li>One-to-one correspondence between vertices preserving adjacency</li>
+      </ul>
+    </div>
+
+    <!-- Trees Fundamentals Card -->
+    <div class="card">
+      <h2 class="section-title">Trees — Fundamentals</h2>
+      <p><strong>Definition:</strong> A special connected, acyclic graph.</p>
+      <p><strong>Key Properties:</strong></p>
+      <ul>
+        <li><strong>Connected:</strong> Path exists between any two vertices</li>
+        <li><strong>Acyclic:</strong> No cycles (can't return to a vertex without retracing steps)</li>
+        <li><strong>Edges:</strong> A tree with n vertices has exactly n−1 edges</li>
+        <li><strong>Unique Paths:</strong> Exactly one path between any two vertices</li>
+      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Root</td>
+            <td>Designated starting vertex (in rooted trees)</td>
+          </tr>
+          <tr>
+            <td>Parent / Child</td>
+            <td>Directed relationship; parent has edges to children</td>
+          </tr>
+          <tr>
+            <td>Leaf</td>
+            <td>Vertex with no children; degree 1 in unrooted tree</td>
+          </tr>
+          <tr>
+            <td>Internal Node</td>
+            <td>Non-leaf vertex; has at least one child or 2+ connections</td>
+          </tr>
+          <tr>
+            <td>Terminal Vertex</td>
+            <td>Vertex with exactly 1 edge (leaf in unrooted tree)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Rooted vs Unrooted Trees Card -->
+    <div class="card">
+      <h2 class="section-title">Rooted vs Unrooted Trees</h2>
+      <div class="grid">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Rooted Tree</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Structure</td>
+                <td>One vertex designated as root; edges directed parent → child</td>
+              </tr>
+              <tr>
+                <td>Use Cases</td>
+                <td>Family trees, organizational charts, file systems, decision trees</td>
+              </tr>
+              <tr>
+                <td>Visualization</td>
+                <td>Root at top, branches downward</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Unrooted Tree</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Structure</td>
+                <td>No designated root; undirected edges</td>
+              </tr>
+              <tr>
+                <td>Use Cases</td>
+                <td>Molecular structures, phylogenetic trees, network topologies</td>
+              </tr>
+              <tr>
+                <td>Visualization</td>
+                <td>No inherent direction; any vertex could be treated as "root"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Binary Trees Card -->
+    <div class="card">
+      <h2 class="section-title">Binary Trees</h2>
+      <p><strong>Definition:</strong> A tree where each vertex has at most two children (often called left and right).</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Definition</th>
+            <th>Constraint</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Binary Tree</td>
+            <td>Each node has 0, 1, or 2 children</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>Full Binary Tree</td>
+            <td>Every node has either 0 or 2 children</td>
+            <td>No node can have exactly 1 child</td>
+          </tr>
+          <tr>
+            <td>Complete Binary Tree</td>
+            <td>All levels filled except possibly the last, which is filled left-to-right</td>
+            <td>Balanced structure</td>
+          </tr>
+          <tr>
+            <td>Perfect Binary Tree</td>
+            <td>All internal nodes have exactly 2 children; all leaves at same depth</td>
+            <td>Has 2ⁿ−1 nodes if height is n</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted"><strong>Applications:</strong> Search trees, heaps, expression trees, compression algorithms (Huffman).</p>
+    </div>
+
+    <!-- Binary Search Trees Card -->
+    <div class="card">
+      <h2 class="section-title">Binary Search Trees (BST)</h2>
+      <p><strong>Key Property:</strong> For every node:</p>
+      <ul>
+        <li>All keys in the <strong>left subtree</strong> &lt; node's key</li>
+        <li>All keys in the <strong>right subtree</strong> &gt; node's key</li>
+      </ul>
+      <p><strong>Operations:</strong></p>
+      <ul>
+        <li><strong>Search:</strong> Compare key with node; go left if smaller, right if larger. O(log n) average, O(n) worst.</li>
+        <li><strong>Insert:</strong> Find correct position using comparison rules; add as new leaf.</li>
+        <li><strong>Delete:</strong> Remove node, preserving BST property (reattach subtrees).</li>
+      </ul>
+      <p class="muted"><strong>Advantage:</strong> Efficient searching without needing to check all nodes. Balance matters: a skewed BST degrades to O(n).</p>
+    </div>
+
+    <footer class="muted">Made for quick studying — print or save as PDF with the button above.</footer>
+  </div>
+</body>
+
+</html>
