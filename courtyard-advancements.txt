@@ -1,0 +1,17 @@
+Things I've done at the Courtyard:
+
+- Create Reports in GXP to simplify many processes:
+  - Breakfast Vouchers in house to report to Bistro team in the morning
+  - View of reservations and what they entail for the day (breakfast rates, advanced deposit rates, accessibility rates
+  - List of reservations with bonus point rate codes and basic logic filters, also a report to view submitted points within the GXP Platform
+- Custom Designed "Pet Cards" kept at the desk to track pets in house, adding to a guests experience of bringing their pup with them
+- Multiple spreadsheets, including
+  - a "Cash Counting Calculator" that mirrors our cash counting sheets, to more easily count the drawer and get accurate totals to ensure balance of $250 at start and end of every shift
+  - a list of breakfast rate codes found, both packages bought online and corporate accounts that get it included. Sorted to print for 
+- Pulled reports from multiple online ordering platforms to create simple and unified inventory sheets for counting market inventory at the end of each month, also keeping unit prices up to date to ensure accurate totals for the company
+- Declared the properties "Beekeeper Champion", assisting Leadership with setting up user accounts, and the different functions of the beekeeper platform for a better communication experience for all associates
+- Updated the newly added SharePoint, the site keeping all property files, with a homepage with ease of access bookmarks used by Front Desk staff daily, guides on how to do certain things at the desk,
+  video tutorials made by the Chief Engineer and myself on different Engineering aspects, and a news tab with information that can be added by myself and others for new and exciting things going on.
+- Learned different technology aspects of the property, including Engineer related (saflok programming box), marriott systems (how FOSSE runs as a server, how it connects to other services), assisting franchise IT with diagnosing issues
+- Learned different ordering platforms for the Market (Vistar, Pepsico)
+- Used Lost & Found platform "iLeftMyStuff" and made property changes to make logging items easier, as well as customizing the guest front page for if they loose an item (and linked it in my email signature!)
