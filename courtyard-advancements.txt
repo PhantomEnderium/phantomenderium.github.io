@@ -7,11 +7,15 @@ Things I've done at the Courtyard:
 - Custom Designed "Pet Cards" kept at the desk to track pets in house, adding to a guests experience of bringing their pup with them
 - Multiple spreadsheets, including
   - a "Cash Counting Calculator" that mirrors our cash counting sheets, to more easily count the drawer and get accurate totals to ensure balance of $250 at start and end of every shift
-  - a list of breakfast rate codes found, both packages bought online and corporate accounts that get it included. Sorted to print for 
+  - a list of breakfast rate codes found, both packages bought online and corporate accounts that get it included. Sorted to print for the front desk to have
+    - Sheet also had a formula to copy paste all known codes as 1 line separated by commas to make updating the breakfast GXP reports way easier by using that as the filter.
 - Pulled reports from multiple online ordering platforms to create simple and unified inventory sheets for counting market inventory at the end of each month, also keeping unit prices up to date to ensure accurate totals for the company
 - Declared the properties "Beekeeper Champion", assisting Leadership with setting up user accounts, and the different functions of the beekeeper platform for a better communication experience for all associates
 - Updated the newly added SharePoint, the site keeping all property files, with a homepage with ease of access bookmarks used by Front Desk staff daily, guides on how to do certain things at the desk,
   video tutorials made by the Chief Engineer and myself on different Engineering aspects, and a news tab with information that can be added by myself and others for new and exciting things going on.
+  - New guides and news posts added periodically which would update automatically for all staff to see on the homepage immediately.
 - Learned different technology aspects of the property, including Engineer related (saflok programming box), marriott systems (how FOSSE runs as a server, how it connects to other services), assisting franchise IT with diagnosing issues
 - Learned different ordering platforms for the Market (Vistar, Pepsico)
 - Used Lost & Found platform "iLeftMyStuff" and made property changes to make logging items easier, as well as customizing the guest front page for if they loose an item (and linked it in my email signature!)
+- Designed Lost & Found tags for Housekeeping to use to put on lost items to make locating and logging items in storage easier, translated both in English and Spanish
+- Worked to get our RelayPro communication devices upgraded and helped the team with knowing how different extra features worked to improve communication and security.
