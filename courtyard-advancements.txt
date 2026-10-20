@@ -1,8 +1,8 @@
 Things I've done at the Courtyard:
 
-- Create Reports in GXP to simplify many processes:
+- Create Reports in guest Empower (GXP) to simplify many processes:
   - Breakfast Vouchers in house to report to Bistro team in the morning
-  - View of reservations and what they entail for the day (breakfast rates, advanced deposit rates, accessibility rates
+  - View of reservations and what they entail for the day (breakfast rates, advanced deposit rates, accessibility rates)
   - List of reservations with bonus point rate codes and basic logic filters, also a report to view submitted points within the GXP Platform
 - Custom Designed "Pet Cards" kept at the desk to track pets in house, adding to a guests experience of bringing their pup with them
 - Multiple spreadsheets, including
@@ -19,3 +19,4 @@ Things I've done at the Courtyard:
 - Used Lost & Found platform "iLeftMyStuff" and made property changes to make logging items easier, as well as customizing the guest front page for if they loose an item (and linked it in my email signature!)
 - Designed Lost & Found tags for Housekeeping to use to put on lost items to make locating and logging items in storage easier, translated both in English and Spanish
 - Worked to get our RelayPro communication devices upgraded and helped the team with knowing how different extra features worked to improve communication and security.
+- Trained early in new "Power of M" systems (StayPMS and Single Pane of Glass) to assist coworkers with learning the processes that would replace the old FOSSE system.
