@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>Resume - Tom Strohl</title>
-	<meta name="description" content="Resume for Tom Strohl" />
+	<meta name="description" content="Resume for Tom Strohl: information security student with a background in hospitality operations, systems, and automation." />
 	<link rel="stylesheet" href="/assets/css/style.css" />
 	<link rel="icon" href="https://shadowloafs.net/favicon.ico" type="image/x-icon">
 </head>
@@ -13,50 +13,100 @@
 		<header class="card">
 			<div class="title">
 				<h1>Tom Strohl</h1>
-				<p class="tagline">Computer Programmer with a knack for problem-solving</p>
-				<p class="meta">Bethlehem, PA • <a href="mailto:tstrohl2003@gmail.com">tstrohl2003@gmail.com</a> • <a href="tel:+14849030026">(484) 903-0026</a></p>
+				<p class="tagline">Information Security student with a background in hospitality operations and systems</p>
+				<p class="meta">Easton, PA • <a href="mailto:tstrohl2003@gmail.com">tstrohl2003@gmail.com</a> • <a href="tel:+14849030026">(484) 903-0026</a></p>
 			</div>
 		</header>
 
 		<section class="card section" aria-labelledby="summary-heading">
 			<h2 id="summary-heading">Professional Summary</h2>
-			<p>Resourceful programmer and support specialist who builds small tools to streamline operations, reduce errors, and speed up service. Comfortable moving between front-line customer roles and technical problem-solving—whether automating reports, fixing workflows, or helping teams learn new systems.</p>
+			<p>Information Security student who learns systems fast and builds the tools that make them work better. I pair hands-on hotel operations experience, including cash handling, nightly audit, and Marriott's property systems, with self-taught server administration and scripting. I care about accuracy, reliable processes, and keeping data secure.</p>
 		</section>
 
 		<section class="section" aria-labelledby="skills-heading">
 			<h2 id="skills-heading">Skills</h2>
 			<div class="grid">
 				<div class="card">
-					<h3>Programming & Automation</h3>
+					<h3>Security &amp; Infrastructure</h3>
+					<div>
+						<span class="pill">Information Security (coursework)</span>
+						<span class="pill">Linux</span>
+						<span class="pill">Proxmox</span>
+						<span class="pill">Docker</span>
+						<span class="pill">Nginx Proxy Manager</span>
+						<span class="pill">Tailscale</span>
+						<span class="pill">Basic network troubleshooting</span>
+					</div>
+				</div>
+				<div class="card">
+					<h3>Programming &amp; Automation</h3>
 					<div>
 						<span class="pill">Python</span>
-						<span class="pill">JavaScript</span>
+						<span class="pill">JavaScript / Node.js</span>
+						<span class="pill">Express</span>
+						<span class="pill">APIs</span>
+						<span class="pill">Discord bots</span>
 						<span class="pill">HTML/CSS</span>
-						<span class="pill">Automation scripts</span>
-						<span class="pill">Data entry tools</span>
 					</div>
 				</div>
 				<div class="card">
-					<h3>Tools & Systems</h3>
+					<h3>Tools &amp; Systems</h3>
 					<div>
 						<span class="pill">Windows</span>
-						<span class="pill">Linux</span>
 						<span class="pill">Microsoft Office</span>
 						<span class="pill">Google Workspace</span>
+						<span class="pill">SharePoint</span>
 						<span class="pill">DocuSign</span>
-						<span class="pill">POS / Front Desk</span>
+						<span class="pill">Marriott GXP</span>
+						<span class="pill">StayPMS &amp; Single Pane of Glass (trained)</span>
 					</div>
 				</div>
 				<div class="card">
-					<h3>Service & Operations</h3>
+					<h3>Service &amp; Operations</h3>
 					<div>
+						<span class="pill">Night Audit</span>
+						<span class="pill">Cash handling &amp; balancing</span>
 						<span class="pill">Customer support</span>
-						<span class="pill">Front desk</span>
-						<span class="pill">Cash handling</span>
 						<span class="pill">Workflow improvement</span>
-						<span class="pill">Training & documentation</span>
+						<span class="pill">Training &amp; documentation</span>
 					</div>
 				</div>
+			</div>
+		</section>
+
+		<section class="section" aria-labelledby="projects-heading">
+			<h2 id="projects-heading">Projects</h2>
+
+			<div class="card">
+				<div class="role-head">
+					<h3>Self-Hosted Homelab</h3>
+					<span class="muted">Ongoing</span>
+				</div>
+				<ul>
+					<li>Run a single Proxmox server hosting virtual machines and LXC containers, with Docker services, Nginx Proxy Manager for reverse proxying, and Tailscale for remote access.</li>
+					<li>Learning server administration and basic networking hands-on by building, breaking, and fixing my own setup.</li>
+				</ul>
+			</div>
+
+			<div class="card">
+				<div class="role-head">
+					<h3>Job Posting Monitor</h3>
+					<span class="muted">Node.js · Cron · Discord webhooks</span>
+				</div>
+				<ul>
+					<li>Built a Node.js script that polls a hiring platform's API every hour and posts new and removed listings to Discord as color-coded alerts.</li>
+					<li>Runs unattended on my own server via cron.</li>
+				</ul>
+			</div>
+
+			<div class="card">
+				<div class="role-head">
+					<h3>Discord "Help Button" Alerts</h3>
+					<span class="muted">Python · Coastal Carolina University</span>
+				</div>
+				<ul>
+					<li>Wrote Python scripts that let library visitors notify Makerspace staff in Discord, cutting response times for assistance requests.</li>
+				</ul>
 			</div>
 		</section>
 
@@ -66,12 +116,17 @@
 			<div class="card">
 				<div class="role-head">
 					<h3>Front Desk Agent</h3>
-					<span class="muted">Courtyard by Marriott — Bethlehem/Easton, PA · Jan 2025 – Present</span>
+					<span class="muted">Courtyard by Marriott Bethlehem Lehigh Valley/I-78 — Bethlehem, PA · Jan 2025 – Present</span>
 				</div>
 				<ul>
-					<li>Manage reservations, check-ins/outs, room assignments, and guest inquiries with accurate billing and follow-through.</li>
-					<li>Coordinate with housekeeping to keep requests moving and issues resolved quickly.</li>
-					<li>Serve as the team's unofficial IT helper—creating small digital tools and reports that speed up daily tasks.</li>
+					<li>Trained in Night Audit and able to run the shift alone; first in line to cover when overnight staff call out. Complete the full nightly audit, including closing shifts, balancing breakfast voucher postings, system backups, POS polling, daily GM reports, and end-of-day close.</li>
+					<li>Balance a $250 cash bank at the start and end of every shift; built a Cash Counting Calculator that mirrors the property's count sheets so totals can be double- and triple-checked.</li>
+					<li>Built custom GXP reports (breakfast vouchers in house, daily reservations by rate type, bonus-point rate codes) and a breakfast rate code reference sheet that generates a one-line code list for faster report filter updates.</li>
+					<li>Completed Marriott Power of M training (StayPMS and Single Pane of Glass) early and helped coworkers prepare for the move off the legacy FOSSE system.</li>
+					<li>Rebuilt the property SharePoint homepage with desk guides, video tutorials made with the Chief Engineer, and a news feed; the GM shared it with the franchise's regional VP, who responded very positively.</li>
+					<li>Assisted franchise IT on property with basic network troubleshooting and account testing for services such as Toast; learned how property systems connect, including FOSSE and the Saflok programming box.</li>
+					<li>Built unified month-end Market inventory sheets from multiple ordering platforms (Vistar, PepsiCo) with current unit pricing for accurate totals.</li>
+					<li>Designed bilingual (English/Spanish) Lost &amp; Found tags for Housekeeping and customized the iLeftMyStuff guest page to make logging items easier; served as the property's Beekeeper Champion and supported the RelayPro device upgrade.</li>
 				</ul>
 			</div>
 
@@ -82,7 +137,7 @@
 				</div>
 				<ul>
 					<li>Operated 3D printing, PCB fabrication, and laser cutting equipment; coached students and faculty on best practices.</li>
-					<li>Built Python “Help Button” alerts to ping staff in Discord, cutting response times for assistance requests.</li>
+					<li>Built Python "Help Button" alerts that ping staff in Discord, cutting response times for assistance requests.</li>
 					<li>Led workshops and answered technical questions to keep projects on track.</li>
 				</ul>
 			</div>
@@ -101,22 +156,12 @@
 
 			<div class="card">
 				<div class="role-head">
-					<h3>Coworker</h3>
-					<span class="muted">Boscov's Department Store — Easton, PA · May 2024 – Dec 2024</span>
-				</div>
-				<ul>
-					<li>Assisted customers on the sales floor across apparel and footwear; maintained tidy, stocked displays.</li>
-					<li>Handled checkout and customer questions to keep lines moving.</li>
-				</ul>
-			</div>
-
-			<div class="card">
-				<div class="role-head">
 					<h3>Earlier Roles (Condensed)</h3>
-					<span class="muted">2019 – 2022</span>
+					<span class="muted">2019 – 2024</span>
 				</div>
 				<ul>
-					<li>Tour Guide — Lost River Caverns: created training guide and digitized onboarding materials.</li>
+					<li>Coworker — Boscov's: sales floor, checkout, and customer questions.</li>
+					<li>Tour Guide — Lost River Caverns: created a training guide and digitized onboarding materials.</li>
 					<li>Sales/Service — Michaels; Dutch Springs; Dairy Queen; Chipotle; A.D. Moyer Lumber: customer service, cash handling, food service, and safe material handling up to 100 lbs.</li>
 				</ul>
 			</div>
@@ -147,10 +192,10 @@
 		<section class="section" aria-labelledby="licenses-heading">
 			<h2 id="licenses-heading">Licenses and Certifications</h2>
 			<div class="card">
-				<p>Driver's License (valid through May 2028)</p>
+				<p>Amateur Radio License (FCC - Technician)</p>
 			</div>
 			<div class="card">
-				<p>Amateur Radio License (FCC - Technician)</p>
+				<p>Driver's License (valid through May 2028)</p>
 			</div>
 		</section>
 
