@@ -1,16 +1,16 @@
 /* Shared styles for the whole site */
 
 :root {
-	--bg: #0f1115;
-	--surface: #161a21;
-	--surface-raised: #21242b;
-	--border: #252c36;
-	--text: #e6e6e6;
-	--text-soft: #b8c1ce;
-	--text-muted: #9aa5b5;
-	--accent: #64b5f6;
-	--chip: #212735;
-	--chip-text: #cbd5e1;
+	--bg: #111111;
+	--surface: #1a1a1a;
+	--surface-raised: #222222;
+	--border: #2e2e2e;
+	--text: #e8e8e8;
+	--text-soft: #bdbdbd;
+	--text-muted: #8f8f8f;
+	--accent: #d9d9d9;
+	--chip: #262626;
+	--chip-text: #d0d0d0;
 
 	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	color: var(--text);
@@ -186,7 +186,7 @@ p.lead {
 }
 
 .tagline {
-	color: #d5e1ff;
+	color: #f0f0f0;
 	font-weight: 600;
 }
 
